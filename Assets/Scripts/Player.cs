@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int hp = 100;
     public int bulletsCount = 30;
     public float fireRate = 1;
     public float speed = 4.5f;
