@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     int startHp;
 
-    private void Start()
+    void Start()
     {
         startHp = hp;
     }
