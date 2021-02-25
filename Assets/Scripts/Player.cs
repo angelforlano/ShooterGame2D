@@ -5,10 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int hp = 100;
+    public int energy = 75;
     public int bulletsCount = 30;
     public float fireRate = 1;
     public float speed = 4.5f;
-
     public Animator animator;
     public SpriteRenderer renderer;
 
@@ -16,6 +16,27 @@ public class Player : MonoBehaviour
     public Transform shootSpawn;
 
     float nextFire;
+
+    int startHp;
+    int startEnergy;
+
+    public float hpPercet
+    {
+        get { return (float) hp / startHp;}
+    }
+
+    public float energyPercet
+    {
+        get { return (float) energy / startEnergy;}
+    }
+
+    void Start()
+    {
+        startHp = hp;
+        startEnergy = energy;
+
+        HUDController.Instance.player = this;
+    }
 
     // Update is called once per frame
     void Update()

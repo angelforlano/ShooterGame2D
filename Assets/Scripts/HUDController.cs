@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
-    public Player player;
     public Image playerHpImage;
+    public Image playerEnergyImage;
+
+    public Player player;
     
     // Singleton!
     public static HUDController Instance;
@@ -18,6 +20,7 @@ public class HUDController : MonoBehaviour
 
     void Update()
     {
-        playerHpImage.fillAmount = (float) player.hp / 100;
+        playerHpImage.fillAmount = player.hpPercet;
+        playerEnergyImage.fillAmount = player.energyPercet;
     }
 }

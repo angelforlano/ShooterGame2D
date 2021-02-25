@@ -1714,6 +1714,11 @@ PrefabInstance:
       propertyPath: fireRate
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5929431919760949914, guid: 83590f7f71b4a3846b0dfefa503231a7,
+        type: 3}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 1585715156}
     - target: {fileID: 5929431919760949916, guid: 83590f7f71b4a3846b0dfefa503231a7,
         type: 3}
       propertyPath: m_Name
@@ -6470,8 +6475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe6fc92765b381488dd52108688c54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1899457709}
   playerHpImage: {fileID: 513684775}
+  playerEnergyImage: {fileID: 228723419}
+  player: {fileID: 0}
 --- !u!1 &1709879878
 GameObject:
   m_ObjectHideFlags: 0
@@ -6751,18 +6757,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888712698}
   m_CullTransparentMesh: 0
---- !u!114 &1899457709 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5929431919760949914, guid: 83590f7f71b4a3846b0dfefa503231a7,
-    type: 3}
-  m_PrefabInstance: {fileID: 660242861}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79a3f5849f7b204428f5ddbcf858eeff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2029422300
 GameObject:
   m_ObjectHideFlags: 0
