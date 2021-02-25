@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public int hp = 100;
     public int energy = 75;
-    public int bulletsCount = 30;
+    public int ammo = 30;
     public float fireRate = 1;
     public float speed = 4.5f;
     public Animator animator;
@@ -65,9 +65,9 @@ public class Player : MonoBehaviour
             animator.SetBool("isShooting", false);
         }
 
-        if(Input.GetKey(KeyCode.Return) && bulletsCount > 0 && Time.time > nextFire)
+        if(Input.GetKey(KeyCode.Return) && ammo > 0 && Time.time > nextFire)
         {
-            bulletsCount--;
+            ammo--;
             nextFire = Time.time + fireRate;
 
             var bullet = Instantiate(bulletPrefab, shootSpawn.position, Quaternion.identity);
@@ -76,6 +76,15 @@ public class Player : MonoBehaviour
             {
                 bullet.transform.Rotate(new Vector3(0, 0, 180));
             }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Ammo"))
+        {
+            ammo += 45;
+            Destroy(other.gameObject);
         }
     }
 }

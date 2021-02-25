@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUDController : MonoBehaviour
 {
     public Image playerHpImage;
     public Image playerEnergyImage;
+    public TextMeshProUGUI ammoText;
 
     public Player player;
     
@@ -22,5 +24,14 @@ public class HUDController : MonoBehaviour
     {
         playerHpImage.fillAmount = player.hpPercet;
         playerEnergyImage.fillAmount = player.energyPercet;
+
+        ammoText.text = player.ammo.ToString();
+
+        if(player.ammo > 0)
+        {
+            ammoText.color = Color.white;
+        } else {
+            ammoText.color = Color.red;
+        }
     }
 }

@@ -8,6 +8,11 @@ public class Bullet : MonoBehaviour
     public float speed = 12;
     public AudioSource audioSource;
 
+    void Start()
+    {
+        Destroy(gameObject, 10f);
+    }
+
     void Awake()
     {
         audioSource.volume = audioSource.volume + Random.Range(-0.5f, 0.5f);
