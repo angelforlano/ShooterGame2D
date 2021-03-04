@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public int hp = 3;
+    public float speed = 4.5f;
+    public float time = 1f;
+
     public Image hpImage;
 
     int startHp;
@@ -22,9 +25,9 @@ public class Enemy : MonoBehaviour
     {
         if (direction)
         {
-            transform.Translate(new Vector3(4 * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         } else {
-            transform.Translate(new Vector3(-4 * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         }
     }
 
@@ -47,9 +50,9 @@ public class Enemy : MonoBehaviour
         while (true)
         {
             direction = true;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(time);
             direction = false;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(time);
         }
     }
 }
