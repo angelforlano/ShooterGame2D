@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("isRunning", false);
         
+        if(HUDController.Instance.pause) return;
+
         if(Input.GetKey(KeyCode.D))
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));

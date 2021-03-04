@@ -9,10 +9,23 @@ public class Enemy : MonoBehaviour
     public Image hpImage;
 
     int startHp;
+    bool direction;
 
     void Start()
     {
         startHp = hp;
+
+        StartCoroutine(Move());
+    }
+
+    void Update()
+    {
+        if (direction)
+        {
+            transform.Translate(new Vector3(4 * Time.deltaTime, 0, 0));
+        } else {
+            transform.Translate(new Vector3(-4 * Time.deltaTime, 0, 0));
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -26,6 +39,17 @@ public class Enemy : MonoBehaviour
             {
                Destroy(gameObject); 
             }
+        }
+    }
+
+    IEnumerator Move()
+    {
+        while (true)
+        {
+            direction = true;
+            yield return new WaitForSeconds(1f);
+            direction = false;
+            yield return new WaitForSeconds(1f);
         }
     }
 }

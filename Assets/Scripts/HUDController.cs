@@ -10,10 +10,14 @@ public class HUDController : MonoBehaviour
     public Image playerEnergyImage;
     public TextMeshProUGUI ammoText;
 
+    public GameObject pausePanel;
+
     public Player player;
     
     // Singleton!
     public static HUDController Instance;
+    
+    public bool pause;
 
     void Awake()
     {
@@ -22,6 +26,12 @@ public class HUDController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            pause = !pause;
+            pausePanel.SetActive(pause);
+        }
+
         playerHpImage.fillAmount = player.hpPercet;
         playerEnergyImage.fillAmount = player.energyPercet;
 
