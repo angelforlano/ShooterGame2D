@@ -9,6 +9,7 @@ public class HUDController : MonoBehaviour
     public Image playerHpImage;
     public Image playerEnergyImage;
     public TextMeshProUGUI ammoText;
+    public TextMeshProUGUI timerText;
 
     public GameObject pausePanel;
 
@@ -32,6 +33,8 @@ public class HUDController : MonoBehaviour
             pausePanel.SetActive(pause);
         }
 
+        timerText.text = GameController.Instance.timeToWin.ToString();
+        
         playerHpImage.fillAmount = player.hpPercet;
         playerEnergyImage.fillAmount = player.energyPercet;
 

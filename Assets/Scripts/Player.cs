@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public int hp = 100;
     public int energy = 75;
     public int ammo = 30;
+    public int plants;
+
     public float fireRate = 1;
     public float speed = 4.5f;
     public Animator animator;
@@ -83,6 +85,13 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("Plant"))
+        {
+            plants++;
+            Destroy(other.gameObject);
+            GameController.Instance.PlantaAdded(plants);
+        }
+
         if (other.gameObject.CompareTag("Ammo"))
         {
             ammo += 45;

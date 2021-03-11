@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float time = 1f;
 
     public Image hpImage;
+    public SpriteRenderer renderer;
 
     int startHp;
     bool direction;
@@ -50,8 +51,11 @@ public class Enemy : MonoBehaviour
         while (true)
         {
             direction = true;
+            renderer.flipX = true;
             yield return new WaitForSeconds(time);
+            
             direction = false;
+            renderer.flipX = false;
             yield return new WaitForSeconds(time);
         }
     }
