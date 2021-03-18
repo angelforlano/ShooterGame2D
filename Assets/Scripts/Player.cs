@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
     public SpriteRenderer renderer;
 
     public GameObject bulletPrefab;
-    public Transform shootSpawn;
+    
+    public Transform shootSpawn1;
+    public Transform shootSpawn2;
 
     float nextFire;
 
@@ -61,8 +63,7 @@ public class Player : MonoBehaviour
             animator.SetBool("isRunning", true);
         }
 
-        // Disparar con enter y config animacion...
-        if(Input.GetKey(KeyCode.Return))
+        if(Input.GetKey(KeyCode.Return) && ammo > 0)
         {
             animator.SetBool("isShooting", true);
         } else {
@@ -73,12 +74,13 @@ public class Player : MonoBehaviour
         {
             ammo--;
             nextFire = Time.time + fireRate;
-
-            var bullet = Instantiate(bulletPrefab, shootSpawn.position, Quaternion.identity);
-
+            
             if(renderer.flipX == true)
             {
+                var bullet = Instantiate(bulletPrefab, shootSpawn2.position, Quaternion.identity);
                 bullet.transform.Rotate(new Vector3(0, 0, 180));
+            } else {
+                Instantiate(bulletPrefab, shootSpawn1.position, Quaternion.identity);
             }
         }
     }
