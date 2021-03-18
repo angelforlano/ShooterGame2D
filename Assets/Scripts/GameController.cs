@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public int currentLevel = 1;
     public int timeToWin = 180;
 
     public UnityEvent onGameEndEvent;
@@ -16,16 +18,9 @@ public class GameController : MonoBehaviour
         GameController.Instance = this;
     }
     
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Timer());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator Timer()
@@ -48,6 +43,8 @@ public class GameController : MonoBehaviour
         if (playerPlants >= 3)
         {
             onPlant1Event.Invoke();
+
+            SceneManager.LoadScene("Level_" + currentLevel+1);
         }
     }
 }

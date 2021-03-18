@@ -8,11 +8,13 @@ public class Player : MonoBehaviour
     public int energy = 75;
     public int ammo = 30;
     public int plants;
+    [Range(2, 6)] public float jumpForce = 4.2f;
 
     public float fireRate = 1;
     public float speed = 4.5f;
     public Animator animator;
     public SpriteRenderer renderer;
+    public Rigidbody2D rb;
 
     public GameObject bulletPrefab;
     
@@ -48,6 +50,11 @@ public class Player : MonoBehaviour
         animator.SetBool("isRunning", false);
         
         if(HUDController.Instance.pause) return;
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
 
         if(Input.GetKey(KeyCode.D))
         {
@@ -99,5 +106,10 @@ public class Player : MonoBehaviour
             ammo += 45;
             Destroy(other.gameObject);
         }
+    }
+
+    void Jump()
+    {
+        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 }

@@ -8005,8 +8005,9 @@ GameObject:
   - component: {fileID: 1771006370}
   - component: {fileID: 1771006369}
   - component: {fileID: 1771006368}
+  - component: {fileID: 1771006371}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8077,6 +8078,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1771006371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771006367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2534407b8c2c9842876d4e784477198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 5929431919311471410}
+  dampTime: 0.15
 --- !u!1 &1804919343
 GameObject:
   m_ObjectHideFlags: 0
@@ -8106,6 +8121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142ca11b8881743459d00fc26eac808a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 1
   timeToWin: 180
   onGameEndEvent:
     m_PersistentCalls:
@@ -8547,6 +8563,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5929431919760949914, guid: 83590f7f71b4a3846b0dfefa503231a7,
+        type: 3}
+      propertyPath: jumpForce
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929431919760949914, guid: 83590f7f71b4a3846b0dfefa503231a7,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 5929431919311471412}
     - target: {fileID: 5929431919760949916, guid: 83590f7f71b4a3846b0dfefa503231a7,
         type: 3}
       propertyPath: m_Name
@@ -8609,3 +8635,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83590f7f71b4a3846b0dfefa503231a7, type: 3}
+--- !u!4 &5929431919311471410 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5929431919760949919, guid: 83590f7f71b4a3846b0dfefa503231a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 415822251578390470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &5929431919311471412 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5929431919760949913, guid: 83590f7f71b4a3846b0dfefa503231a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 415822251578390470}
+  m_PrefabAsset: {fileID: 0}
