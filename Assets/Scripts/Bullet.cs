@@ -15,8 +15,8 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
-        audioSource.volume = audioSource.volume + Random.Range(-0.5f, 0.5f);
-        audioSource.pitch = audioSource.pitch + Random.Range(-0.075f, 0.075f);
+        //audioSource.volume = audioSource.volume + Random.Range(-0.5f, 0.5f);
+        //audioSource.pitch = audioSource.pitch + Random.Range(-0.075f, 0.075f);
     }
 
     void Update()

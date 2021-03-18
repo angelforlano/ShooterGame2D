@@ -31,7 +31,6 @@ public class GameController : MonoBehaviour
         {
             timeToWin -= 1;
             yield return new WaitForSeconds(1);
-            Debug.Log("Time To Win > " + timeToWin);
         }
 
         Debug.Log("Game End");

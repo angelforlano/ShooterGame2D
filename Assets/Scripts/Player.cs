@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     public int energy = 75;
     public int ammo = 30;
     public int plants;
-    [Range(2, 6)] public float jumpForce = 4.2f;
+    
+    [Range(10, 40)]
+    public float jumpForce = 20;
 
     public float fireRate = 1;
     public float speed = 4.5f;
@@ -111,5 +113,12 @@ public class Player : MonoBehaviour
     void Jump()
     {
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        animator.SetTrigger("jump");
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log(other.gameObject.name);
+        animator.SetTrigger("jumpGround");
     }
 }
