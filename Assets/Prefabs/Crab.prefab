@@ -156,7 +156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  speed: 4.5
+  time: 1
   hpImage: {fileID: 8235722434152687167}
+  sprite: {fileID: 1998481966896063528}
 --- !u!1 &8235722433604377820
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +242,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8235722433604377794
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -220,10 +220,12 @@ MonoBehaviour:
   energy: 75
   ammo: 30
   plants: 0
+  jumpForce: 10
   fireRate: 0.1
   speed: 4.5
   animator: {fileID: 5929431919760949917}
   renderer: {fileID: 5929431919760949918}
+  rb: {fileID: 5929431919760949913}
   bulletPrefab: {fileID: 1063684900442107948, guid: 78321b12e407c7b439798a8d902997ab,
     type: 3}
   shootSpawn1: {fileID: 415822250111999068}
