@@ -48,8 +48,9 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Game Start");
 
-        while (timeToWin > 1 && !pause)
+        while (timeToWin > 1)
         {
+            yield return new WaitUntil(() => !pause);
             timeToWin -= 1;
             yield return new WaitForSeconds(1);
         }
