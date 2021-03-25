@@ -20,11 +20,6 @@ public class HUDController : MonoBehaviour
     // Privates!
     Player player;
 
-    public bool Pause
-    {
-        get {return pause;}
-    }
-
     void Awake()
     {
         Instance = this;

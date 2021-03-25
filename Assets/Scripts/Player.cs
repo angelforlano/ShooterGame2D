@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("isRunning", false);
 
-        if(HUDController.Instance.Pause) return;
+        if(GameController.Instance.Pause) return;
 
         if(Input.GetKeyDown(KeyCode.Space))
         {

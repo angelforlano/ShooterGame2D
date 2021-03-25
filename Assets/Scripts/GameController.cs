@@ -15,6 +15,11 @@ public class GameController : MonoBehaviour
 
     bool pause;
 
+    public bool Pause
+    {
+        get {return pause;}
+    }
+
     void Awake()
     {
         if (GameController.Instance == null)
@@ -35,7 +40,7 @@ public class GameController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P))
         {
             pause = !pause;
-            HUDController.Instnace.SetPausePanel(pause);
+            HUDController.Instance.SetPausePanel(pause);
         }
     }
 
