@@ -13,9 +13,16 @@ public class GameController : MonoBehaviour
     public UnityEvent onPlant1Event;
     public static GameController Instance;
 
+    bool pause;
+
     void Awake()
     {
-        GameController.Instance = this;
+        if (GameController.Instance == null)
+        {
+           GameController.Instance = this; 
+        } else {
+            Destroy(gameObject);
+        }
     }
     
     void Start()
@@ -23,18 +30,34 @@ public class GameController : MonoBehaviour
         StartCoroutine(Timer());
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            pause = !pause;
+            HUDController.Instnace.SetPausePanel(pause);
+        }
+    }
+
     IEnumerator Timer()
     {
         Debug.Log("Game Start");
 
-        while (timeToWin > 0)
+        while (timeToWin > 1 && !pause)
         {
             timeToWin -= 1;
             yield return new WaitForSeconds(1);
         }
 
         Debug.Log("Game End");
+        GameOver();
+    }
+
+    void GameOver()
+    {
+        timeToWin = 0;
         onGameEndEvent.Invoke();
+        HUDController.Instance.SetGameOverPanel();
     }
 
     public void PlantaAdded(int playerPlants)
@@ -45,5 +68,15 @@ public class GameController : MonoBehaviour
 
             SceneManager.LoadScene("Level_" + currentLevel+1);
         }
+    }
+
+    public void ReStartGame()
+    {
+        SceneManager.LoadScene("Level_" + currentLevel);
+    }
+
+    public void GoMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

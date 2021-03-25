@@ -43,15 +43,14 @@ public class Player : MonoBehaviour
         startHp = hp;
         startEnergy = energy;
 
-        HUDController.Instance.player = this;
+        HUDController.Instance.SetPlayer(this);
     }
 
-    // Update is called once per frame
     void Update()
     {
         animator.SetBool("isRunning", false);
-        
-        if(HUDController.Instance.pause) return;
+
+        if(HUDController.Instance.Pause) return;
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -118,7 +117,6 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.name);
         animator.SetTrigger("jumpGround");
     }
 }

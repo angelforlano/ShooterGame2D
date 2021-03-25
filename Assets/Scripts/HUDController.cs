@@ -12,13 +12,18 @@ public class HUDController : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     public GameObject pausePanel;
+    public GameObject gameOverPanel;
 
-    public Player player;
-    
     // Singleton!
     public static HUDController Instance;
     
-    public bool pause;
+    // Privates!
+    Player player;
+
+    public bool Pause
+    {
+        get {return pause;}
+    }
 
     void Awake()
     {
@@ -27,12 +32,6 @@ public class HUDController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            pause = !pause;
-            pausePanel.SetActive(pause);
-        }
-
         timerText.text = GameController.Instance.timeToWin.ToString();
         
         playerHpImage.fillAmount = player.hpPercet;
@@ -46,5 +45,35 @@ public class HUDController : MonoBehaviour
         } else {
             ammoText.color = Color.red;
         }
+    }
+
+    public void SetPlayer(Player _player)
+    {
+        player = _player;
+    }
+
+    public void SetGameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
+    }
+    
+    public void SetPausePanel(bool pauseValue)
+    {
+        pausePanel.SetActive(pauseValue);
+    }
+
+    public void RetryBtn()
+    {
+        GameController.Instance.ReStartGame();
+    }
+
+    public void MainMenuBtn()
+    {
+        GameController.Instance.GoMainMenu();
+    }
+
+    public void QuitBtn()
+    {
+        Application.Quit();
     }
 }
